@@ -58,7 +58,7 @@ class Service extends \SoapClient
       'features' => 1,
     ), $options);
       if (!$wsdl) {
-        $wsdl = 'https://wbtest.suus.com/webservice.php/project/Service?wsdl';
+        $wsdl = 'https://wb.suus.com/webservice.php/project/Service?wsdl';
       }
       parent::__construct($wsdl, $options);
     }
