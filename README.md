@@ -21,3 +21,66 @@ $generator = new \Wsdl2PhpGenerator\Generator();
             ])
         );
 ```
+
+### Usage
+
+#### Example of using addOrder method
+
+```
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$auth = new SuusApi\Client\Auth();
+$auth->setLogin('login');
+$auth->setPassword('password');
+
+$orderHeader = new SuusApi\Client\OrderHeader(
+        'testtest_123123',
+        'descriptionOfGoods',
+        'remarks'
+);
+$orderHeader->setOrderType('B2B');
+
+$loadingAddress = new SuusApi\Client\Address(
+        'Rohlig Suus',
+        'Równoległa',
+        '4A',
+        '02-235',
+        'Warszawa',
+        'PL',
+        'person'
+);
+$loadingAddress->setMobilePhone('506000000');
+
+$unloadingAddress = new SuusApi\Client\Address(
+        'Rohlig Suus',
+        'Równoległa',
+        '4A',
+        '02-235',
+        'Warszawa',
+        'PL',
+        'person'
+);
+$unloadingAddress->setMobilePhone('506000000');
+
+$package = new SuusApi\Client\Package(
+        'EUR',
+        1,
+        30,
+        120,
+        80,
+        100
+);
+
+$packages = new SuusApi\Client\Packages([$package]);
+$order = new SuusApi\Client\Order($orderHeader, $loadingAddress, $unloadingAddress, $packages);
+$order->setPackages($packages);
+
+$service = new SuusApi\Client\Service([], 'https://wbtest.suus.com/webservice.php/project/Service?wsdl');
+$response = $service->addOrder($auth, $order);
+
+var_dump($response);
+
+?>
+```
