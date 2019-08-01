@@ -21,7 +21,7 @@ class ColliResult
     protected $error = null;
 
     /**
-     * @var ArrayOfColli $colliNo
+     * @var Colli[] $colliNo
      */
     protected $colliNo = null;
 
@@ -29,7 +29,7 @@ class ColliResult
      * @param string $shipmentNo
      * @param string $reference
      * @param ReturnInfo $error
-     * @param ArrayOfColli $colliNo
+     * @param Colli[] $colliNo
      */
     public function __construct($shipmentNo, $reference, $error, $colliNo)
     {
@@ -94,7 +94,7 @@ class ColliResult
     }
 
     /**
-     * @return ArrayOfColli
+     * @return Colli[]
      */
     public function getColliNo()
     {
@@ -102,7 +102,7 @@ class ColliResult
     }
 
     /**
-     * @param ArrayOfColli $colliNo
+     * @param Colli[] $colliNo
      * @return \SuusApi\Client\ColliResult
      */
     public function setColliNo($colliNo)
