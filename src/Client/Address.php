@@ -2,6 +2,11 @@
 
 namespace SuusApi\Client;
 
+/**
+ * Class Address
+ * @package SuusApi\Client
+ * @property e-mail
+ */
 class Address
 {
 
@@ -34,11 +39,6 @@ class Address
      * @var string $country
      */
     protected $country = null;
-
-    /**
-     * @var string $email
-     */
-    protected $email = null;
 
     /**
      * @var string $phone
@@ -188,7 +188,7 @@ class Address
      */
     public function getEmail()
     {
-      return $this->email;
+      return $this->{'e-mail'};
     }
 
     /**
@@ -197,7 +197,7 @@ class Address
      */
     public function setEmail($email)
     {
-      $this->email = $email;
+      $this->{'e-mail'} = $email;
       return $this;
     }
 
